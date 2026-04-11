@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="avatar.svg">
+  <title>Portfolio — Windows 95</title>
+  <meta name="description" content="Personal portfolio — Windows 95/98 desktop experience" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     BOOT SCREEN
+     ════════════════════════════════════════════ -->
+<div id="boot-screen">
+  <div class="bios-lines" id="bios-lines">
+    <span>PORTFOLIO BIOS v4.20.69</span>
+    <span>Copyright (C) 2026, qhuyy Inc.</span>
+    <span>&nbsp;</span>
+    <span>CPU: Creative-Brain™ @ ∞ GHz</span>
+    <span>RAM: 640K ought to be enough for anybody</span>
+    <span>Detecting IDE drives... OK</span>
+    <span>Loading portfolio modules...</span>
+    <span>&nbsp;</span>
+    <span>Starting Portfolio 95...</span>
+  </div>
+  <div class="boot-logo">
+    <span>⊞</span> Portfolio <span>95</span>
+  </div>
+  <div class="boot-sub">PERSONAL EDITION</div>
+  <div class="boot-progress-track">
+    <div class="boot-progress-bar" id="boot-bar"></div>
+  </div>
+  <div class="boot-text" id="boot-text">Initializing system...</div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     DESKTOP
+     ════════════════════════════════════════════ -->
+<div id="desktop">
+  <!-- Desktop Icons -->
+  <div class="desktop-icons">
+    <div class="desktop-icon" data-window="about" ondblclick="openWindow('about')">
+      <div class="ico">👤</div>
+      <div class="ico-label">About Me</div>
+    </div>
+    <div class="desktop-icon" data-window="projects" ondblclick="openWindow('projects')">
+      <div class="ico">📁</div>
+      <div class="ico-label">Projects</div>
+    </div>
+    <div class="desktop-icon" data-window="skills" ondblclick="openWindow('skills')">
+      <div class="ico">💾</div>
+      <div class="ico-label">Skills</div>
+    </div>
+    <div class="desktop-icon" data-window="contact" ondblclick="openWindow('contact')">
+      <div class="ico">📧</div>
+      <div class="ico-label">Contact</div>
+    </div>
+    <div class="desktop-icon" data-window="resume" ondblclick="openWindow('resume')">
+      <div class="ico">📄</div>
+      <div class="ico-label">Resume</div>
+    </div>
+  </div>
+
+  <!-- ═══ WINDOW: About ═══ -->
+  <div class="win95-window hidden" id="win-about" style="width:520px;height:380px;top:30px;left:120px;">
+    <div class="win-titlebar" data-window="about">
+      <span class="title-icon">👤</span>
+      <span class="title-text">About Me</span>
+      <button class="win-btn" onclick="minimizeWindow('about')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('about')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('about')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Edit</span><span>Help</span></div>
+    <div class="win-body">
+      <!-- ✏️ EDIT: Replace with your info -->
+      <h2>👋 Hello, I'm wh2sperx</h2>
+      <p>I'm a <strong>beginner swe</strong> from <strong>Viet Nam :3</strong>.</p>
+      <p>
+        I like makin' stuff for the web — clean UI, interactive shit, tools that actually work.<br>
+        Outside the web? I'm into <strong>Competitive Programming</strong> (yeah, optimizing 'til 3AM, don't judge),<br>
+        and app dev — especially <strong>Bukkit</strong> for Minecraft servers & <strong>Android SDK</strong> for mobile apps.
+      </p>
+      <h3>Quick Facts</h3>
+      <ul>
+        <li>🎂 Age: 14</li>
+        <li>📍 Location: Lam Dong</li>
+        <li>🎓 Education: idk u just need to know im in middle school, thats enough</li>
+        <li>💼 Currently: Unemployment</li>
+      </ul>
+    </div>
+    <div class="win-status">
+      <div class="status-section">about_me.txt</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="about"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Projects ═══ -->
+  <div class="win95-window hidden" id="win-projects" style="width:580px;height:440px;top:50px;left:180px;">
+    <div class="win-titlebar" data-window="projects">
+      <span class="title-icon">📁</span>
+      <span class="title-text">My Projects</span>
+      <button class="win-btn" onclick="minimizeWindow('projects')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('projects')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('projects')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>View</span><span>Help</span></div>
+    <div class="win-body">
+      <h2>📁 C:\Projects\</h2>
+
+      <div class="project-card">
+        <h3>InsureInv</h3>
+        <p>A flexible, charge-based inventory protection plugin for modern Minecraft servers</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Kotlin</span>
+          <span class="tech-tag">Gradle Kotlin DSL</span>
+          <span class="tech-tag">Claude</span>
+        </div>
+        <a class="project-link" href="https://github.com/wh2sperx/InsureInv" target="_blank" rel="noopener noreferrer">🔗 Visit Site →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>hyticallib-environment-detection</h3>
+        <p>A Java 21 library for detecting the runtime execution environment of the current JVM process</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">Markdown</span>
+        </div>
+        <a class="project-link" href="https://github.com/wh2sperx/hyticallib-environment-detection" target="_blank" rel="noopener noreferrer">🔗 Visit Site →</a>
+      </div>
+
+      <div class="project-card">
+        <h3>hyticallib-i18n</h3>
+        <p>A platform-agnostic localization infrastructure library for JVM Application ( mainly for Bukkit idk )</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Java</span>
+          <span class="tech-tag">SnakeYaml</span>
+        </div>
+        <a class="project-link" href="https://github.com/wh2sperx/hyticallib-i18n" target="_blank" rel="noopener noreferrer">🔗 Visit Site →</a>
+      </div>
+    </div>
+    <div class="win-status">
+      <div class="status-section">3 project(s)</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="projects"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Skills ═══ -->
+  <div class="win95-window hidden" id="win-skills" style="width:420px;height:360px;top:70px;left:250px;">
+    <div class="win-titlebar" data-window="skills">
+      <span class="title-icon">💾</span>
+      <span class="title-text">Skills & Stack</span>
+      <button class="win-btn" onclick="minimizeWindow('skills')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('skills')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('skills')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Help</span></div>
+    <div class="win-body">
+      <h2>💾 Installed Programs</h2>
+
+      <!-- ✏️ EDIT: Replace with your actual skills -->
+      <h3>Languages</h3>
+      <div class="skill-grid">
+        <div class="skill-item">Java</div>
+        <div class="skill-item">Kotlin</div>
+        <div class="skill-item">C++</div>
+        <div class="skill-item">C#</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">GoLang</div>
+      </div>
+
+      <h3>Frameworks</h3>
+      <div class="skill-grid">
+        <div class="skill-item">React</div>
+        <div class="skill-item">SpringBoot</div>
+        <div class="skill-item">Flutter</div>
+      </div>
+
+      <h3>Tools</h3>
+      <div class="skill-grid">
+        <div class="skill-item">Git</div>
+        <div class="skill-item">JetBrains</div>
+        <div class="skill-item">VSCode</div>
+        <div class="skill-item">Docker</div>
+        <div class="skill-item">AntiGravity</div>
+      </div>
+    </div>
+    <div class="win-status">
+      <div class="status-section">skills.sys</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="skills"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Contact ═══ -->
+  <div class="win95-window hidden" id="win-contact" style="width:400px;height:300px;top:90px;left:300px;">
+    <div class="win-titlebar" data-window="contact">
+      <span class="title-icon">📧</span>
+      <span class="title-text">Contact</span>
+      <button class="win-btn" onclick="minimizeWindow('contact')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('contact')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('contact')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Help</span></div>
+    <div class="win-body">
+      <h2>📧 Get In Touch</h2>
+      <p>Want to work together or just say hi? Reach out!</p>
+
+      <!-- ✏️ EDIT: Replace with your contact links -->
+      <div class="contact-field">
+        <span class="field-icon">📧</span>
+        <a href="mailto:contact@qhuyy.tech">contact@qhuyy.tech</a>
+      </div>
+      <div class="contact-field">
+        <span class="field-icon">🐙</span>
+        <a href="https://github.com/wh2sperx" target="_blank" rel="noopener noreferrer">github.com/wh2sperx</a>
+      </div>
+      <div class="contact-field">
+        <span class="field-icon">💬</span>
+        <a href="https://discord.com/users/1262316486673043472" target="_blank" rel="noopener noreferrer">Discord: @qhuyy1123</a>
+      </div>
+      <a class="contact-btn" href="mailto:contact@qhuyy.tech">✉ Send Email</a>
+    </div>
+    <div class="win-status">
+      <div class="status-section">contact.exe</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="contact"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Resume ═══ -->
+  <div class="win95-window hidden" id="win-resume" style="width:480px;height:400px;top:40px;left:200px;">
+    <div class="win-titlebar" data-window="resume">
+      <span class="title-icon">📄</span>
+      <span class="title-text">Resume — Notepad</span>
+      <button class="win-btn" onclick="minimizeWindow('resume')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('resume')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('resume')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Edit</span><span>Format</span><span>Help</span></div>
+    <div class="win-body" style="font-size:14px; white-space:pre-wrap; font-family:var(--font);"><!-- ✏️ EDIT: Replace with your resume content -->
+╔══════════════════════════════════════╗
+║         R E S U M E                                     ║
+╚══════════════════════════════════════╝
+
+Bui Doan Quang Huy
+a beginner swe from VN
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+INTERESTS
+──────────
+▸ Competitive Programming
+▸ Minecraft Modding
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Last updated: 2026
+</div>
+    <div class="win-status">
+      <div class="status-section">resume.txt</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="resume"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TASKBAR
+     ════════════════════════════════════════════ -->
+<div id="taskbar">
+  <button id="start-btn" onclick="toggleStartMenu()">
+    <span class="start-flag">⊞</span> Start
+  </button>
+  <div class="taskbar-divider"></div>
+  <div id="taskbar-items"></div>
+  <div class="taskbar-tray">
+    <span id="tray-clock"></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     START MENU
+     ════════════════════════════════════════════ -->
+<div id="start-menu">
+  <div class="start-sidebar"><span>Portfolio95</span></div>
+  <div class="start-items">
+    <div class="start-item" onclick="openWindow('about'); closeStartMenu();">
+      <span class="si-icon">👤</span> About Me
+    </div>
+    <div class="start-item" onclick="openWindow('projects'); closeStartMenu();">
+      <span class="si-icon">📁</span> Projects
+    </div>
+    <div class="start-item" onclick="openWindow('skills'); closeStartMenu();">
+      <span class="si-icon">💾</span> Skills
+    </div>
+    <div class="start-item" onclick="openWindow('contact'); closeStartMenu();">
+      <span class="si-icon">📧</span> Contact
+    </div>
+    <div class="start-item" onclick="openWindow('resume'); closeStartMenu();">
+      <span class="si-icon">📄</span> Resume
+    </div>
+    <div class="start-divider"></div>
+    <div class="start-item" onclick="closeAllWindows(); closeStartMenu();">
+      <span class="si-icon">🔌</span> Close All
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
