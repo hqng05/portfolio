@@ -64,11 +64,14 @@ let zCounter = 100;
 const windowState = {}; // { id: { open, minimized, maximized, prevStyle } }
 
 const wins = {
-  about:    { icon: '👤', title: 'About Me' },
+  about: { icon: '👤', title: 'About Me' },
   projects: { icon: '📁', title: 'Projects' },
-  skills:   { icon: '💾', title: 'Skills' },
-  contact:  { icon: '📧', title: 'Contact' },
-  resume:   { icon: '📄', title: 'Resume' },
+  skills: { icon: '💾', title: 'Skills' },
+  contact: { icon: '📧', title: 'Contact' },
+  resume: { icon: '📄', title: 'Resume' },
+  support: { icon: '💖', title: 'Support Me' },
+  crypto: { icon: '🪙', title: 'Crypto' },
+  banktransfer: { icon: '🏦', title: 'MBBank Transfer' },
 };
 
 function getWinEl(id) { return document.getElementById('win-' + id); }
@@ -317,5 +320,70 @@ function playClick() {
     gain.connect(audioCtx.destination);
     osc.start();
     osc.stop(audioCtx.currentTime + 0.06);
-  } catch(e) {}
+  } catch (e) { }
+}
+
+/* ═══════════════════════════════════════════════
+   SUPPORT ME
+   ═══════════════════════════════════════════════ */
+function openCrypto() {
+  // Reset display
+  document.getElementById('crypto-addr-box').style.display = 'none';
+  openWindow('crypto');
+}
+
+/* ✏️ EDIT: Replace with your actual wallet addresses */
+const cryptoAddresses = {
+  btc: { label: '₿ Bitcoin (BTC)', addr: 'bc1qrp94uck2gax4rsuqsr53lk8udkurqyz9ws2w26' },
+  eth: { label: 'Ξ Ethereum (ETH)', addr: '0xbd771a0ef93a4387e790f5282e475e5f1c9c72aa' },
+  ltc: { label: 'Ł Litecoin (LTC)', addr: 'ltc1qjag542fh2h5xu5k5yjz6veu89zslxfm5gghph4' },
+};
+
+function showCryptoAddr(coin) {
+  const info = cryptoAddresses[coin];
+  if (!info) return;
+  playClick();
+  document.getElementById('crypto-coin-label').textContent = info.label;
+  document.getElementById('crypto-addr-text').textContent = info.addr;
+  document.getElementById('crypto-copy-btn').textContent = '📋 Copy';
+  document.getElementById('crypto-addr-box').style.display = 'block';
+}
+
+function copyCryptoAddr() {
+  const addr = document.getElementById('crypto-addr-text').textContent;
+  navigator.clipboard.writeText(addr).then(() => {
+    document.getElementById('crypto-copy-btn').textContent = '✅ Copied!';
+    setTimeout(() => {
+      document.getElementById('crypto-copy-btn').textContent = '📋 Copy';
+    }, 2000);
+  });
+  playClick();
+}
+
+function openBankTransfer() {
+  // Reset QR
+  document.getElementById('qr-container').style.display = 'none';
+  document.getElementById('custom-amount').value = '';
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('amount-active'));
+  openWindow('banktransfer');
+}
+
+function selectAmount(amount) {
+  if (!amount || amount < 1000) return;
+  playClick();
+
+  // Highlight active button
+  document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('amount-active'));
+  // Find matching preset button
+  document.querySelectorAll('.amount-grid .amount-btn').forEach(b => {
+    const btnAmount = parseInt(b.textContent.replace(/[^0-9]/g, ''));
+    if (btnAmount === amount) b.classList.add('amount-active');
+  });
+
+  const formatted = amount.toLocaleString('vi-VN');
+  const qrUrl = `https://qr.sepay.vn/img?acc=0971217856&bank=MBBank&amount=${amount}&template=compact&des=tysm`;
+
+  document.getElementById('qr-label').textContent = `Số tiền: ${formatted}₫`;
+  document.getElementById('qr-img').src = qrUrl;
+  document.getElementById('qr-container').style.display = 'block';
 }

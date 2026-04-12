@@ -63,6 +63,10 @@
       <div class="ico">📄</div>
       <div class="ico-label">Resume</div>
     </div>
+    <div class="desktop-icon" data-window="support" ondblclick="openWindow('support')">
+      <div class="ico">💖</div>
+      <div class="ico-label">Support Me</div>
+    </div>
   </div>
 
   <!-- ═══ WINDOW: About ═══ -->
@@ -267,6 +271,101 @@ Last updated: 2026
     </div>
     <div class="win-resize" data-window="resume"></div>
   </div>
+
+  <!-- ═══ WINDOW: Support Me ═══ -->
+  <div class="win95-window hidden" id="win-support" style="width:440px;height:380px;top:60px;left:160px;">
+    <div class="win-titlebar" data-window="support">
+      <span class="title-icon">💖</span>
+      <span class="title-text">Support Me</span>
+      <button class="win-btn" onclick="minimizeWindow('support')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('support')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('support')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Help</span></div>
+    <div class="win-body">
+      <h2>💖 Support My Work</h2>
+      <p>If you like what I do, consider buying me a cà phê ☕</p>
+
+      <h3>Choose a method</h3>
+      <div class="skill-grid support-grid">
+        <div class="skill-item support-method" onclick="openCrypto()">🪙 Crypto</div>
+        <div class="skill-item support-method" onclick="openBankTransfer()">🏦 MBBank</div>
+      </div>
+    </div>
+    <div class="win-status">
+      <div class="status-section">donate.exe</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="support"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Crypto ═══ -->
+  <div class="win95-window hidden" id="win-crypto" style="width:420px;height:340px;top:50px;left:200px;">
+    <div class="win-titlebar" data-window="crypto">
+      <span class="title-icon">🪙</span>
+      <span class="title-text">Crypto — Select Coin</span>
+      <button class="win-btn" onclick="minimizeWindow('crypto')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('crypto')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('crypto')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Help</span></div>
+    <div class="win-body">
+      <h2>🪙 Select Network</h2>
+      <div class="skill-grid">
+        <div class="skill-item support-method" onclick="showCryptoAddr('btc')">₿ Bitcoin</div>
+        <div class="skill-item support-method" onclick="showCryptoAddr('eth')">Ξ Ethereum</div>
+        <div class="skill-item support-method" onclick="showCryptoAddr('ltc')">Ł Litecoin</div>
+      </div>
+      <div id="crypto-addr-box" class="crypto-addr-box" style="display:none;">
+        <p id="crypto-coin-label" style="margin:0 0 4px; font-size:14px; font-weight:bold;"></p>
+        <div class="crypto-addr-row">
+          <code id="crypto-addr-text" class="crypto-addr-text"></code>
+          <button class="amount-btn" onclick="copyCryptoAddr()" id="crypto-copy-btn">📋 Copy</button>
+        </div>
+      </div>
+    </div>
+    <div class="win-status">
+      <div class="status-section">crypto.exe</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="crypto"></div>
+  </div>
+
+  <!-- ═══ WINDOW: Bank Transfer (QR) ═══ -->
+  <div class="win95-window hidden" id="win-banktransfer" style="width:380px;height:520px;top:40px;left:220px;">
+    <div class="win-titlebar" data-window="banktransfer">
+      <span class="title-icon">🏦</span>
+      <span class="title-text">MBBank — Transfer</span>
+      <button class="win-btn" onclick="minimizeWindow('banktransfer')" title="Minimize">_</button>
+      <button class="win-btn" onclick="maximizeWindow('banktransfer')" title="Maximize">□</button>
+      <button class="win-btn" onclick="closeWindow('banktransfer')" title="Close">✕</button>
+    </div>
+    <div class="win-menubar"><span>File</span><span>Help</span></div>
+    <div class="win-body" style="text-align:center;">
+      <h2>🏦 Chọn số tiền</h2>
+      <div class="amount-grid">
+        <button class="amount-btn" onclick="selectAmount(10000)">10,000₫</button>
+        <button class="amount-btn" onclick="selectAmount(20000)">20,000₫</button>
+        <button class="amount-btn" onclick="selectAmount(50000)">50,000₫</button>
+        <button class="amount-btn" onclick="selectAmount(100000)">100,000₫</button>
+        <button class="amount-btn" onclick="selectAmount(200000)">200,000₫</button>
+        <button class="amount-btn" onclick="selectAmount(500000)">500,000₫</button>
+      </div>
+      <div class="custom-amount-row">
+        <input type="number" id="custom-amount" class="custom-amount-input" placeholder="Nhập số tiền..." min="1000" step="1000">
+        <button class="amount-btn custom-go" onclick="selectAmount(Number(document.getElementById('custom-amount').value))">OK</button>
+      </div>
+      <div id="qr-container" class="qr-container" style="display:none;">
+        <p id="qr-label" style="margin:8px 0 4px; font-size:14px; color:#333;"></p>
+        <img id="qr-img" src="" alt="QR Code" style="max-width:200px; border:2px solid var(--win-dark);">
+      </div>
+    </div>
+    <div class="win-status">
+      <div class="status-section">transfer.exe</div>
+      <div class="status-section" style="max-width:80px;">Ready</div>
+    </div>
+    <div class="win-resize" data-window="banktransfer"></div>
+  </div>
 </div>
 
 <!-- ════════════════════════════════════════════
@@ -303,6 +402,9 @@ Last updated: 2026
     </div>
     <div class="start-item" onclick="openWindow('resume'); closeStartMenu();">
       <span class="si-icon">📄</span> Resume
+    </div>
+    <div class="start-item" onclick="openWindow('support'); closeStartMenu();">
+      <span class="si-icon">💖</span> Support Me
     </div>
     <div class="start-divider"></div>
     <div class="start-item" onclick="closeAllWindows(); closeStartMenu();">
