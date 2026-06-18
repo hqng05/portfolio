@@ -87,19 +87,28 @@ export default function Navbar() {
           <div className="nav-links" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             {/* Only show section links on home page */}
             {!isNuoihuy && navLinks.map((link, i) => (
-              <motion.a
+              <motion.button
                 key={link.href}
-                href={link.href}
+                onClick={() => {
+                  const id = link.href.replace('#', '')
+                  const el = document.getElementById(id)
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i + 0.3, duration: 0.4 }}
                 style={{
                   padding: '8px 18px',
                   borderRadius: 'var(--radius-sm)',
-                  textDecoration: 'none',
+                  border: 'none',
+                  background: 'none',
+                  cursor: 'pointer',
                   fontSize: 14,
                   fontWeight: 500,
                   color: 'var(--text-secondary)',
+                  fontFamily: 'inherit',
                   transition: 'all 0.25s ease',
                 }}
                 whileHover={{
@@ -108,7 +117,7 @@ export default function Navbar() {
                 }}
               >
                 {link.label}
-              </motion.a>
+              </motion.button>
             ))}
 
             {/* Toggle button: home ↔ nuoihuy */}
@@ -213,10 +222,19 @@ export default function Navbar() {
             }}
           >
             {!isNuoihuy && navLinks.map((link, i) => (
-              <motion.a
+              <motion.button
                 key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  setMobileOpen(false)
+                  // Small delay so mobile menu closes first, then scroll
+                  setTimeout(() => {
+                    const id = link.href.replace('#', '')
+                    const el = document.getElementById(id)
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }
+                  }, 100)
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
@@ -226,14 +244,17 @@ export default function Navbar() {
                   fontSize: 24,
                   fontWeight: 600,
                   color: 'var(--text-primary)',
-                  textDecoration: 'none',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
                   borderRadius: 'var(--radius-md)',
                   transition: 'background 0.2s',
                 }}
                 whileHover={{ background: 'rgba(255,255,255,0.05)' }}
               >
                 {link.label}
-              </motion.a>
+              </motion.button>
             ))}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
