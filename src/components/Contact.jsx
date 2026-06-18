@@ -12,8 +12,8 @@ const contacts = [
   {
     icon: '🐙',
     label: 'GitHub',
-    value: 'github.com/wh2sperx',
-    href: 'https://github.com/wh2sperx',
+    value: 'github.com/hqng05',
+    href: 'https://github.com/hqng05',
     color: '#22d3ee',
   },
   {
