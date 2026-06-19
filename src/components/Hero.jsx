@@ -96,22 +96,28 @@ export default function Hero() {
               animate="visible"
               style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}
             >
-              <motion.a
-                href="#projects"
+              <motion.button
+                onClick={() => {
+                  const el = document.getElementById('projects')
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }}
                 className="btn btn--primary"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 View Projects ↓
-              </motion.a>
-              <motion.a
-                href="#contact"
+              </motion.button>
+              <motion.button
+                onClick={() => {
+                  const el = document.getElementById('contact')
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }}
                 className="btn btn--ghost"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get in Touch →
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             {/* Stats row */}
